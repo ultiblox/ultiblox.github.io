@@ -16,3 +16,13 @@
     clip-path: inset(1px);
   }
 }
+
+main {
+  /*padding-top: 100px;*/
+}
+
+#header {
+  min-height: 400px; /* Adjust this value as needed */
+  background-size: cover;
+  background-position: center;
+}

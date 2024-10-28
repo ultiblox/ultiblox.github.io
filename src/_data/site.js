@@ -1,9 +1,10 @@
+// src/_data/site.js
 module.exports = {
-  title: 'Vredeburg',
-  description: 'Eleventy starter project to create a blog',
-  keywords: ['eleventy', 'template', 'simple', 'clean'],
-  url: 'https://vredeburg.netlify.app', // your site url without trailing slash
-  paginate: 6 // how many posts you want to show for each page
-  // uncomment the next line if you want to add disqus to your site
-  // disqusShortname: "your-shortname"
+  title: 'UltiBlocks',
+  description: 'UltiBlocks is a flexible ecosystem of modular electronics enclosures and Arduino libraries, designed for makers, educators, and engineers. Mix and match components to build custom solutions with ease, powered by robust, reusable code and adaptable hardware.',
+  keywords: ['modular', 'electronics', 'Arduino', 'maker', 'Ultiblocks'],
+  url: 'https://ultiblocks.com', // your site URL without trailing slash
+  paginate: 6,
+  cover_image: '/assets/img/ultiblocks-banner.webp'
 };
+
