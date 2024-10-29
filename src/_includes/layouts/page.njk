@@ -1,6 +1,8 @@
 {% extends "layouts/default.njk" %}
 
 {% block content %}
+  {% include 'partials/header.njk' %}
+
   <article class="mx-auto px-6 py-10">
     <h1 class="prose">{{ title }}</h1>
     <div class="prose mb-8">
@@ -13,6 +15,5 @@
     {% set parent = title %}
   {% endif %}
 
-  <!-- Include page-grid.njk -->
-  {% include "partials/page-grid.njk" %}
+  {% include 'partials/footer.njk' %}
 {% endblock %}
