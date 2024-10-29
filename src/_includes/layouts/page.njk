@@ -1,8 +1,18 @@
 {% extends "layouts/default.njk" %}
 
 {% block content %}
-  <article class="prose mx-auto px-6 py-10">
-    <h1>{{ title }}</h1>
-    {{ content | safe }}
+  <article class="mx-auto px-6 py-10">
+    <h1 class="prose">{{ title }}</h1>
+    <div class="prose mb-8">
+      {{ content | safe }}
+    </div>
   </article>
+
+  <!-- Set parent to title if parent is not explicitly defined -->
+  {% if not parent %}
+    {% set parent = title %}
+  {% endif %}
+
+  <!-- Include page-grid.njk -->
+  {% include "partials/page-grid.njk" %}
 {% endblock %}
