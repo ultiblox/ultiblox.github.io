@@ -26,3 +26,37 @@ main {
   background-size: cover;
   background-position: center;
 }
+/* Default styling for standard HTML tags */
+
+h2 {
+  font-size: 1.875rem; /* Large font size for subheadings */
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem; /* Medium font size for sub-subheadings */
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding-left: 1.5rem; /* Indent lists */
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
