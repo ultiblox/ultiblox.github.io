@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Run build script
-        run: ./build.sh
+        run: bash build.sh
 
       - name: Upload build artifacts
         if: always()
