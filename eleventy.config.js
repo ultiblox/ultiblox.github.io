@@ -1,7 +1,8 @@
 module.exports = (config) => {
   // Passthrough file copying
   config.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
-  config.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
+  config.addPassthroughCopy({ 'src/assets/css': 'assets/css' });
+  config.addPassthroughCopy({ 'src/assets/js': 'assets/js' });
 
   // Add JS files to watch target
   config.addWatchTarget("src/assets/js/");
@@ -36,7 +37,7 @@ module.exports = (config) => {
       input: 'src',
       output: 'dist'
     },
-    // pathPrefix: "/subfolder/",
+    pathPrefix: process.env.PATH_PREFIX || "", // Dynamically set pathPrefix
     templateFormats: ['md', 'njk', 'html'],
     dataTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk'
