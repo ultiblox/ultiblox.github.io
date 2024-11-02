@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: '16'
       - name: Set PATH_PREFIX for GitHub Pages
-        run: echo "PATH_PREFIX=/" >> $GITHUB_ENV
+        run: echo "PATH_PREFIX=''" >> $GITHUB_ENV
       - name: Install dependencies
         run: npm install
       - name: Run build script
