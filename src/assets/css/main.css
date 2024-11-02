@@ -64,3 +64,28 @@ img {
 ul {
   list-style-type: disc;
 }
+
+/* Remove underline for links within card elements */
+
+.card a {
+  text-decoration: none;
+}
+
+/* Remove underline specifically for links within card elements */
+
+.features .card a {
+  text-decoration: none;
+}
+
+/* Force removal of underline specifically for links within card elements */
+
+.features .card a {
+  text-decoration: none !important;
+}
+
+/* Apply underline styling only within content areas */
+
+.content a {
+  text-decoration: underline;
+  font-weight: bold;
+}
