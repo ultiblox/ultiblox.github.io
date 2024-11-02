@@ -33,6 +33,7 @@ jobs:
       # Build CSS with Tailwind (Verbose)
       - name: Build CSS with Tailwind
         run: |
+          tree
           echo "Starting Tailwind CSS Build"
           npx tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --minify --verbose
           echo "Tailwind CSS Build Complete"
