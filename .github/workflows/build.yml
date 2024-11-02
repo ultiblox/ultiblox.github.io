@@ -30,6 +30,13 @@ jobs:
       - name: Clear dist folder
         run: rm -rf dist/*
 
+      # Build site with Eleventy
+      - name: Build site with Eleventy
+        run: |
+          echo "Starting Eleventy Build"
+          npx @11ty/eleventy
+          echo "Eleventy Build Complete"
+
       # Build CSS with Tailwind (Verbose)
       - name: Build CSS with Tailwind
         run: |
@@ -37,13 +44,6 @@ jobs:
           echo "Starting Tailwind CSS Build"
           npx tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --minify --verbose
           echo "Tailwind CSS Build Complete"
-
-      # Build site with Eleventy
-      - name: Build site with Eleventy
-        run: |
-          echo "Starting Eleventy Build"
-          npx @11ty/eleventy
-          echo "Eleventy Build Complete"
 
       # Configure and Deploy to GitHub Pages
       - name: Setup Pages
