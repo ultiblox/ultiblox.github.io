@@ -5,6 +5,6 @@ module.exports = {
   keywords: ['modular', 'electronics', 'Arduino', 'maker', 'Ultiblocks'],
   url: 'https://ultiblox.github.io', // your site URL without trailing slash
   paginate: 6,
-  cover_image: '/assets/img/ultiblocks-banner.webp'
+  cover_image: '/assets/img/banner.webp'
 };
 
