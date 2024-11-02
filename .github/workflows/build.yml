@@ -26,9 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Build CSS with Tailwind
+      # Build CSS with Tailwind (Verbose)
       - name: Build CSS with Tailwind
-        run: npx tailwindcss -i src/assets/css/main.css -o dist/assets/css/main.css --minify
+        run: npx tailwindcss -i src/assets/css/main.css -o dist/assets/css/main.css --minify --verbose
 
       # Build site with Eleventy
       - name: Build site with Eleventy
