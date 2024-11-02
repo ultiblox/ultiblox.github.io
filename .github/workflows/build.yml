@@ -1,8 +1,8 @@
-name: Deploy static content to Pages
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Updated to trigger on main branch
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -10,13 +10,10 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -29,36 +26,19 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Separate Tailwind and Eleventy build steps
+      # Build CSS with Tailwind
       - name: Build CSS with Tailwind
         run: npx tailwindcss -i src/assets/css/main.css -o dist/assets/css/main.css --minify
 
+      # Build site with Eleventy
       - name: Build site with Eleventy
         run: npx @11ty/eleventy
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: site-build
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: site-build
-          path: dist
-
+      # Configure and Deploy to GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist/'
