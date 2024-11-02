@@ -28,6 +28,12 @@ main {
 }
 /* Default styling for standard HTML tags */
 
+h1 {
+  font-size: 2rem; /* Large font size for headings */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
 h2 {
   font-size: 1.875rem; /* Large font size for subheadings */
   font-weight: 600;
