@@ -34,7 +34,7 @@ jobs:
       - name: Build CSS with Tailwind
         run: |
           echo "Starting Tailwind CSS Build"
-          npx tailwindcss -i src/assets/css/main.css -o dist/assets/css/main.css --minify --verbose
+          npx tailwindcss -i ./src/assets/css/main.css -o ./dist/assets/css/main.css --minify --verbose
           echo "Tailwind CSS Build Complete"
 
       # Build site with Eleventy
