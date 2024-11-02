@@ -3,7 +3,8 @@ module.exports = {
     './src/**/*.njk',
     './src/**/*.svg',
     './src/assets/js/*.js',
-    './src/**/*.html'  // Reference `src` files where classes are used
+    './src/**/*.html',
+    './dist/**/*.html'
   ],
   screens: {
     sm: '576px',
