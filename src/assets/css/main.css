@@ -60,3 +60,7 @@ img {
   height: auto;
 }
 
+
+ul {
+  list-style-type: disc;
+}
