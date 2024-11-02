@@ -2,7 +2,7 @@ name: Build and Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main", "dev"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -26,13 +26,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Clear the dist folder before building
+      - name: Clear dist folder
+        run: rm -rf dist/*
+
       # Build CSS with Tailwind (Verbose)
       - name: Build CSS with Tailwind
-        run: npx tailwindcss -i src/assets/css/main.css -o dist/assets/css/main.css --minify --verbose
+        run: |
+          echo "Starting Tailwind CSS Build"
+          npx tailwindcss -i src/assets/css/main.css -o dist/assets/css/main.css --minify --verbose
+          echo "Tailwind CSS Build Complete"
 
       # Build site with Eleventy
       - name: Build site with Eleventy
-        run: npx @11ty/eleventy
+        run: |
+          echo "Starting Eleventy Build"
+          npx @11ty/eleventy
+          echo "Eleventy Build Complete"
 
       # Configure and Deploy to GitHub Pages
       - name: Setup Pages
