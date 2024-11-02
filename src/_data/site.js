@@ -3,7 +3,7 @@ module.exports = {
   title: 'UltiBlocks',
   description: 'UltiBlocks is a flexible ecosystem of modular electronics enclosures and Arduino libraries, designed for makers, educators, and engineers. Mix and match components to build custom solutions with ease, powered by robust, reusable code and adaptable hardware.',
   keywords: ['modular', 'electronics', 'Arduino', 'maker', 'Ultiblocks'],
-  url: 'https://ultiblox.github.io', // your site URL without trailing slash
+  url: 'https://ultiblox.org', // your site URL without trailing slash
   paginate: 6,
   cover_image: '/assets/img/banner.webp'
 };
