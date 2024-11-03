@@ -2,36 +2,44 @@
 layout: page
 ---
 
-<h2>Libraries</h2>
-<p>Get into the code that drives it all. Our libraries provide the magic that makes every piece of hardware come alive.</p>
+<div class="content">
+  <h2>Libraries</h2>
+  <p>Each UltiBlox library handles a specific function—whether that’s reading sensors, displaying information, logging data, or managing thresholds. These libraries are designed to work independently or together, making it easy to build exactly what you need.</p>
 
-<div class="max-w-4xl mx-auto text-center">
-  <img src="/assets/img/libraries.webp" alt="Libraries" class="w-full h-auto object-cover rounded-lg shadow-md">
+  <div class="max-w-4xl mx-auto text-center">
+    <img src="/assets/img/libraries.webp" alt="Libraries" class="w-full h-auto object-cover rounded-lg shadow-md">
+  </div>
+
+  <h3>Library Categories</h3>
+
+  <h4>Logging</h4>
+  <ul>
+    <li><a href="/libraries/SerialLogger">SerialLogger</a>: Logs data over Serial with adjustable log levels and formats.</li>
+  </ul>
+
+  <h4>Sensors</h4>
+  <ul>
+    <li><a href="/libraries/SensorAnalog">SensorAnalog</a>: Reads and calibrates analog sensors with support for calibration ranges and threshold-based triggers.</li>
+  </ul>
+
+  <h4>Displays</h4>
+  <ul>
+    <li><a href="/libraries/DisplayValueLCD">DisplayValueLCD</a>: Controls 16x2 I2C LCD displays for simple text output.</li>
+    <li><a href="/libraries/DisplayValueOLED">DisplayValueOLED</a>: Manages OLED displays with options for custom fonts and layout.</li>
+  </ul>
+
+  <h4>Control & Thresholds</h4>
+  <ul>
+    <li><a href="/libraries/ActiveThreshold">ActiveThreshold</a>: Manages actions based on sensor data crossing defined thresholds.</li>
+  </ul>
+
+  <h3>Using UltiBlox Libraries</h3>
+  <p>Combine libraries as needed to build your project:</p>
+  <ul>
+    <li>Use <strong>SerialLogger</strong> with <strong>SensorAnalog</strong> to log sensor readings in real time.</li>
+    <li>Display values on LCD or OLED screens by pairing <strong>SensorAnalog</strong> with <strong>DisplayValueLCD</strong> or <strong>DisplayValueOLED</strong>.</li>
+    <li>Set up automated actions with <strong>ActiveThreshold</strong> to control devices when sensor readings reach specific levels.</li>
+  </ul>
+
+  <p>This approach keeps each library simple and focused, making it easier to integrate only the functions your project requires.</p>
 </div>
-
-<h3>Overview</h3>
-<p>UltiBlox libraries are designed for simplicity and interchangeability, just like the physical enclosures. Each library fits seamlessly into your project, allowing you to swap and adjust components with minimal effort.</p>
-
-<h3>Modular and Interchangeable by Design</h3>
-<p>UltiBlox libraries are built with identical function signatures, making them easy to replace or upgrade without major rewrites. For example, DisplayValueLCD and DisplayValueOLED can be swapped by adjusting one configuration. The SensorAnalog library follows the same approach, allowing quick integration of new sensor types, all while maintaining consistency and ease of use.</p>
-
-<h3>Mix-and-Match Flexibility</h3>
-<ul>
-  <li><strong>Consistent Function Signatures:</strong> Libraries use consistent function signatures, making it simple to mix and match components without compatibility issues.</li>
-  <li><strong>Simple Configuration:</strong> Swapping components usually involves changing a single configuration or precompiler directive, keeping everything accessible for all skill levels.</li>
-</ul>
-
-<h3>Benefits of a Modular Software System</h3>
-<ul>
-  <li><strong>Effortless Upgrades:</strong> Upgrade sensors or displays by simply changing a library reference or configuration.</li>
-  <li><strong>Reduced Complexity:</strong> Learn one library and easily apply your knowledge across others, minimizing the learning curve.</li>
-  <li><strong>Scalable Projects:</strong> Easily add new features by integrating the right library and updating the configuration.</li>
-</ul>
-
-<h3>Use Cases</h3>
-<ul>
-  <li><strong>Swapping Displays:</strong> Switch between LCD and OLED displays by adjusting a configuration setting.</li>
-  <li><strong>Sensor Expansion:</strong> Add new sensors like temperature or humidity by including a compatible library and updating the configuration.</li>
-</ul>
-
-<p>The modular approach of UltiBlox libraries ensures flexibility and ease of use. By making them interchangeable and simple to configure, makers can focus more on building and less on troubleshooting.</p>

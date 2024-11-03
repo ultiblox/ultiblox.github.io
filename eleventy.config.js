@@ -1,3 +1,5 @@
+const markdownIt = require("markdown-it");
+
 module.exports = (config) => {
   // Passthrough file copying
   config.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
@@ -10,7 +12,7 @@ module.exports = (config) => {
   // Layout Aliases
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');
-  config.addLayoutAlias('page', 'layouts/page.njk'); // New layout for pages
+  config.addLayoutAlias('page', 'layouts/page.njk');
 
   // Filters
   config.addFilter('readableDate', require('./lib/filters/readableDate'));
@@ -28,8 +30,26 @@ module.exports = (config) => {
   // New Collection for Pages with Custom Order
   config.addCollection('pages', (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob('src/pages/*.njk') // Only .njk files in the 'pages' folder
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0)); // Sort by 'order' in front matter
+      .getFilteredByGlob('src/pages/*.njk')
+      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+  });
+
+  // Shortcode for fetching and converting markdown from a URL
+  const md = new markdownIt();
+  config.addNunjucksAsyncShortcode("markdownFromUrl", async function(url) {
+    console.log("Debug: Received URL:", url);  // Debugging line to check URL
+
+    try {
+      const response = await fetch(new URL(url));
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const markdown = await response.text();
+
+      // Convert markdown to HTML
+      return md.render(markdown);
+    } catch (error) {
+      console.error("Error fetching markdown from URL:", error);
+      return "<p>Error loading content from specified URL.</p>";
+    }
   });
 
   return {
@@ -37,7 +57,7 @@ module.exports = (config) => {
       input: 'src',
       output: 'dist'
     },
-    pathPrefix: process.env.PATH_PREFIX || "", // Dynamically set pathPrefix
+    pathPrefix: process.env.PATH_PREFIX || "",
     templateFormats: ['md', 'njk', 'html'],
     dataTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk'
