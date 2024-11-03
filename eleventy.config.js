@@ -34,8 +34,30 @@ module.exports = (config) => {
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
   });
 
+  // Configure Markdown-it for custom inline and block code handling
+  const md = markdownIt({
+    html: true,
+    breaks: true,
+    typographer: true,
+  });
+
+  // Custom renderer to replace single backticks with <span class="inline-code">
+  md.renderer.rules.code_inline = (tokens, idx) => {
+    const content = md.utils.escapeHtml(tokens[idx].content);
+    return `<span class="inline-code">${content}</span>`;
+  };
+
+  // Custom renderer for fenced code blocks
+  md.renderer.rules.fence = (tokens, idx) => {
+    const token = tokens[idx];
+    const langClass = token.info ? `language-${md.utils.escapeHtml(token.info.trim())}` : "";
+    const content = md.utils.escapeHtml(token.content);
+    return `<code class="${langClass}" style="white-space: pre; display: block; overflow-x: auto; padding: 1em; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 4px;">${content}</code>`;
+  };
+
+  config.setLibrary("md", md);
+
   // Dynamic Shortcode for fetching and rendering markdown from any URL
-  const md = new markdownIt();
   config.addNunjucksAsyncShortcode("fetchMarkdown", async function(url) {
     try {
       const response = await fetch(url);
