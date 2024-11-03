@@ -286,3 +286,6 @@ code[class^="language-"] {
   border-radius: 4px;
   overflow-x: auto;
 }
+/* Include Highlight.js default styles for syntax highlighting */
+@import "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css";
+

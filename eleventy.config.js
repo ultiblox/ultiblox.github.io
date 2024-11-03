@@ -1,4 +1,5 @@
 const markdownIt = require("markdown-it");
+const markdownItHighlightJs = require("markdown-it-highlightjs");
 
 module.exports = (config) => {
   // Passthrough file copying
@@ -34,25 +35,25 @@ module.exports = (config) => {
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
   });
 
-  // Configure Markdown-it for custom inline and block code handling
+  // Configure Markdown-it with Highlight.js for syntax highlighting
   const md = markdownIt({
     html: true,
     breaks: true,
     typographer: true,
-  });
+  }).use(markdownItHighlightJs);
 
-  // Custom renderer to replace single backticks with <span class="inline-code">
-  md.renderer.rules.code_inline = (tokens, idx) => {
-    const content = md.utils.escapeHtml(tokens[idx].content);
-    return `<span class="inline-code">${content}</span>`;
-  };
-
-  // Custom renderer for fenced code blocks
+  // Custom renderer for block code: use <code> only, with block styling
   md.renderer.rules.fence = (tokens, idx) => {
     const token = tokens[idx];
     const langClass = token.info ? `language-${md.utils.escapeHtml(token.info.trim())}` : "";
     const content = md.utils.escapeHtml(token.content);
     return `<code class="${langClass}" style="white-space: pre; display: block; overflow-x: auto; padding: 1em; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 4px;">${content}</code>`;
+  };
+
+  // Custom renderer to replace single backticks with <span class="inline-code">
+  md.renderer.rules.code_inline = (tokens, idx) => {
+    const content = md.utils.escapeHtml(tokens[idx].content);
+    return `<span class="inline-code">${content}</span>`;
   };
 
   config.setLibrary("md", md);

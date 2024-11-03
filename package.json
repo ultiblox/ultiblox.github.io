@@ -35,7 +35,7 @@
     "terser": "^5.16.1"
   },
   "dependencies": {
-    "node-fetch": "^3.3.2",
-    "prismjs": "^1.29.0"
+    "markdown-it-highlightjs": "^4.2.0",
+    "node-fetch": "^3.3.2"
   }
 }
