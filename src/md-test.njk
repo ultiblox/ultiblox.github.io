@@ -2,13 +2,6 @@
 layout: page
 ---
 
-<div class="content">
-  <!-- Render README content dynamically using the new shortcode -->
-  {% fetchMarkdown "https://raw.githubusercontent.com/ultiblox/SensorAnalog/refs/heads/main/README.md" %}
-
+<div class="repo-content">
+  {% fetchMarkdown "ultiblox/SensorAnalog" %}
 </div>
-
-<!-- Include Prism.js library for syntax highlighting -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-arduino.min.js"></script>
