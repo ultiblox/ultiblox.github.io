@@ -3,6 +3,7 @@ const markdownItHighlightJs = require("markdown-it-highlightjs");
 
 module.exports = (config) => {
   // Passthrough file copying
+  config.addPassthroughCopy({ 'src/assets/icons': 'assets/icons' });
   config.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
   config.addPassthroughCopy({ 'src/assets/css': 'assets/css' });
   config.addPassthroughCopy({ 'src/assets/js': 'assets/js' });

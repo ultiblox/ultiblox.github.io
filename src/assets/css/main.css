@@ -289,3 +289,73 @@ code[class^="language-"] {
 /* Include Highlight.js default styles for syntax highlighting */
 @import "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css";
 
+
+/* Style adjustments for header menu links to improve visibility */
+#header #menu a {
+    color: #ffffff; /* Set a visible color for menu links */
+    font-weight: 500;
+}
+
+#header #menu a:hover {
+    color: #00bfa5; /* Change color on hover for visual feedback */
+}
+
+@media (max-width: 768px) {
+    /* Ensure menu items align correctly on smaller screens */
+    #header #menu {
+        display: flex;
+        justify-content: center;
+    }
+    #header #menu a {
+        margin: 0 0.5rem; /* Small margin around links for spacing */
+    }
+}
+
+
+/* Styling adjustments for GitHub link in the header */
+.github-link {
+    color: #ffffff; /* Ensure high contrast text color */
+    padding: 0.5rem 1rem; /* Add padding for spacing */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for visibility */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.github-link:hover {
+    background-color: rgba(0, 191, 165, 0.7); /* Lighter color on hover */
+    color: #ffffff;
+}
+
+.github-link img {
+    width: 1.5rem; /* Larger icon */
+    height: 1.5rem;
+}
+
+/* Additional spacing between subtitle and GitHub link */
+#header .github-link {
+    margin-top: 1rem;
+}
+
+/* Styling for GitHub button below the banner */
+.github-button {
+    background-color: #00796b; /* Bold teal color for contrast */
+    color: #ffffff; /* White text for visibility */
+    font-size: 1.125rem; /* Larger font size */
+    font-weight: 600;
+    padding: 0.75rem 1.5rem; /* Ample padding for a button-like feel */
+    border-radius: 0.5rem; /* Rounded corners for a modern look */
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.github-button:hover {
+    background-color: #009688; /* Lighter teal on hover */
+}
+
+.github-button img {
+    width: 1.5rem; /* Icon size for visibility */
+    height: 1.5rem;
+}
+
