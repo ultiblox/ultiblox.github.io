@@ -34,20 +34,18 @@ module.exports = (config) => {
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
   });
 
-  // Shortcode for fetching and converting markdown from a URL
+  // Dynamic Shortcode for fetching and rendering markdown from any URL
   const md = new markdownIt();
-  config.addNunjucksAsyncShortcode("markdownFromUrl", async function(url) {
-    console.log("Debug: Received URL:", url);  // Debugging line to check URL
-
+  config.addNunjucksAsyncShortcode("fetchMarkdown", async function(url) {
     try {
-      const response = await fetch(new URL(url));
+      const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const markdown = await response.text();
 
       // Convert markdown to HTML
       return md.render(markdown);
     } catch (error) {
-      console.error("Error fetching markdown from URL:", error);
+      console.error(`Error fetching markdown from URL (${url}):`, error);
       return "<p>Error loading content from specified URL.</p>";
     }
   });
