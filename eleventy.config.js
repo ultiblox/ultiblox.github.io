@@ -59,12 +59,11 @@ module.exports = (config) => {
 
   config.setLibrary("md", md);
 
-  // Dynamic Shortcode for fetching and rendering markdown from any repository name
   config.addNunjucksAsyncShortcode("fetchMarkdown", async function(repoName) {
     const githubUrl = `https://github.com/${repoName}`;
     const readmeUrl = `https://raw.githubusercontent.com/${repoName}/main/README.md`;
-
-    // GitHub Link with SVG Icon and right alignment
+    const baseGithubUrl = `https://github.com/${repoName}/blob/main`;
+  
     const githubLink = `
       <div style="text-align: right; margin-bottom: 1em;">
         <a href="${githubUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; text-decoration: none; color: #0366d6;">
@@ -74,20 +73,36 @@ module.exports = (config) => {
           View Library on GitHub
         </a>
       </div>`;
-
+  
     try {
+      // Fetch markdown
       const response = await fetch(readmeUrl);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const markdown = await response.text();
-
-      // Convert markdown to HTML and prepend GitHub link
-      return githubLink + md.render(markdown);
+      let markdown = await response.text();
+      console.log("Fetched Markdown:", markdown);
+  
+      // Render markdown to HTML
+      let renderedHtml = md.render(markdown);
+      console.log("Rendered HTML:", renderedHtml);
+  
+      // Adjust links in rendered HTML
+      renderedHtml = renderedHtml.replace(/href="(?!http)(.*?)"/g, (match, relativePath) => {
+        const adjustedPath = relativePath.startsWith("/")
+          ? `${baseGithubUrl}${relativePath}`
+          : `${baseGithubUrl}/${relativePath}`;
+        console.log(`Adjusting link: ${relativePath} -> ${adjustedPath}`);
+        return `href="${adjustedPath}"`;
+      });
+  
+      console.log("Final Adjusted HTML:", renderedHtml);
+  
+      return githubLink + renderedHtml;
     } catch (error) {
       console.error(`Error fetching markdown from URL (${readmeUrl}):`, error);
       return `<p>Error loading content from the repository README.</p>`;
     }
   });
-
+  
   return {
     dir: {
       input: 'src',
