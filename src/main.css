@@ -117,3 +117,50 @@ ol li {
 .breadcrumb span {
   color: #333;
 }
+
+
+.activity-summary {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+}
+
+#menu {
+  display: flex;
+  align-items: center; /* Vertically align both stats and button */
+  justify-content: flex-end; /* Align everything to the right */
+}
+
+.stats-box {
+  padding: 0.5rem 1rem; /* Internal spacing for the stats box */
+  border: 1px solid #d1d5db; /* Subtle gray border for outline */
+  border-radius: 0.375rem; /* Rounded corners for a clean look */
+  background-color: #f9fafb; /* Light gray background for contrast */
+  white-space: nowrap; /* Keep text on one line */
+  font-size: 0.875rem; /* Slightly smaller text size */
+  color: #4b5563; /* Neutral gray text color */
+  display: flex;
+  align-items: center; /* Vertically center text inside the box */
+  justify-content: center;
+  height: 3rem; /* Match the button's height */
+}
+
+.github-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db; /* Same border style for consistency */
+  height: 3rem; /* Match the stats box height */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.github-button:hover {
+  background-color: #14b8a6; /* Teal hover background */
+  color: #ffffff; /* White text on hover */
+}

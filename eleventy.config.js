@@ -79,22 +79,22 @@ module.exports = (config) => {
       const response = await fetch(readmeUrl);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       let markdown = await response.text();
-      console.log("Fetched Markdown:", markdown);
+      //console.log("Fetched Markdown:", markdown);
   
       // Render markdown to HTML
       let renderedHtml = md.render(markdown);
-      console.log("Rendered HTML:", renderedHtml);
+      //console.log("Rendered HTML:", renderedHtml);
   
       // Adjust links in rendered HTML
       renderedHtml = renderedHtml.replace(/href="(?!http)(.*?)"/g, (match, relativePath) => {
         const adjustedPath = relativePath.startsWith("/")
           ? `${baseGithubUrl}${relativePath}`
           : `${baseGithubUrl}/${relativePath}`;
-        console.log(`Adjusting link: ${relativePath} -> ${adjustedPath}`);
+        //console.log(`Adjusting link: ${relativePath} -> ${adjustedPath}`);
         return `href="${adjustedPath}"`;
       });
   
-      console.log("Final Adjusted HTML:", renderedHtml);
+      //console.log("Final Adjusted HTML:", renderedHtml);
   
       return githubLink + renderedHtml;
     } catch (error) {
