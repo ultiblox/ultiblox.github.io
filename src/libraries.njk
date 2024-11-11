@@ -15,11 +15,32 @@ layout: page
     <img src="/assets/img/libraries.webp" alt="Libraries" class="w-full h-auto object-cover rounded-lg shadow-md">
   </div>
 
+  <h2>Accessing the Libraries</h2>
+
+  <h3>Arduino IDE</h3>
+  
+  <p>All libraries are available through the Arduino IDE library manager.</p>
+  <p><strong>Note: The libraries in Arduino IDE are not updating and are currently out of date. The Arduino team is working on the issue. For now a direct clone is a better option.</strong></p>
+  <ul>
+    <li>Click Sketch -> Include Library -> Manage Libraries...</li>
+    <li>Search "UltiBlox"</li>
+    <li>Click "Install" on the library you want to use</li>
+  </ul>
+  <p>Tip: If you're just getting started, install the UltiBlox-Examples library.</p>
+
+  <h3>Clone from GitHub</h3>
+
+  <p>Libraries can be cloned directly from GitHub</p>
+  <ul>
+    <li>Click on a library below.</li>
+    <li>Follow the instructions in the readme to clone and install the library</p>
+  </ul>
+
   <h3>Library Categories</h3>
 
-  <h4>Logging</h4>
+  <h4>Examples</h4>
   <ul>
-    <li><a href="/libraries/SerialLogger">SerialLogger</a>: Logs data over Serial with adjustable log levels and formats.</li>
+    <li><a href="/libraries/Examples">Examples</a>: Provides examples for the various UltiBlox templates.</li>
   </ul>
 
   <h4>Sensors</h4>
@@ -37,7 +58,12 @@ layout: page
 
   <h4>Control & Thresholds</h4>
   <ul>
-    <li><a href="/libraries/ActiveThreshold">ActiveThreshold</a>: Manages actions based on sensor data crossing defined thresholds.</li>
+    <li><a href="/libraries/ActiveThreshold">ActiveThreshold</a>: Turns on/off devices based on sensor data crossing a defined threshold.</li>
+  </ul>
+
+  <h4>Logging</h4>
+  <ul>
+    <li><a href="/libraries/SerialLogger">SerialLogger</a>: Logs data over Serial with adjustable log levels and formats.</li>
   </ul>
 
   <h3>Using UltiBlox Libraries</h3>
