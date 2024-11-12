@@ -1,0 +1,88 @@
+---
+layout: default
+title: STL Test Page
+---
+
+<h1>STL Viewer Test</h1>
+<div id="stl-viewer"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r132/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/STLLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+<script>
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setClearColor(0xeeeeee);
+    document.getElementById('stl-viewer').appendChild(renderer.domElement);
+
+    // Lighting
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(5, 10, 7.5).normalize();
+    scene.add(light);
+
+    // Add orbit controls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    // Load STL
+    const loader = new THREE.STLLoader();
+    loader.load('/assets/stls/UltiBlox-10-10-5-Base-Nano.stl', function (geometry) {
+        const material = new THREE.MeshPhongMaterial({ color: 0x555555, specular: 0x111111, shininess: 200 });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        // Compute bounding box
+        geometry.computeBoundingBox();
+        const bbox = geometry.boundingBox;
+        const center = new THREE.Vector3();
+        bbox.getCenter(center);
+
+        // Center the geometry
+        geometry.translate(-center.x, -center.y, -center.z);
+
+        // Adjust camera to fit the model
+        const size = bbox.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const cameraZ = maxDim * 1.5 / Math.tan(camera.fov * Math.PI / 360);
+        camera.position.set(0, 0, cameraZ);
+        camera.lookAt(0, 0, 0);
+    });
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update(); // Update controls
+        renderer.render(scene, camera);
+    }
+
+    // Responsive canvas
+    function resizeRenderer() {
+        const viewer = document.getElementById('stl-viewer');
+        const width = viewer.offsetWidth;
+        const height = window.innerHeight - viewer.offsetTop - 50; // Adjust for footer
+        viewer.style.height = `${height}px`;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    }
+
+    window.addEventListener('resize', resizeRenderer);
+    resizeRenderer(); // Initial resize
+    animate();
+</script>
+
+<style>
+    #stl-viewer {
+        width: 100%; /* Fit container width */
+        height: calc(100vh - 200px); /* Dynamically fit the height minus header/footer */
+        background: #eeeeee;
+        margin: 0 auto;
+        overflow: hidden; /* Prevent scrollbars */
+        position: relative;
+    }
+
+    body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+</style>
