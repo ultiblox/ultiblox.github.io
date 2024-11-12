@@ -7,6 +7,7 @@ module.exports = (config) => {
   config.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
   config.addPassthroughCopy({ 'src/assets/css': 'assets/css' });
   config.addPassthroughCopy({ 'src/assets/js': 'assets/js' });
+  config.addPassthroughCopy({ 'src/assets/stls': 'assets/stls' });
 
   // Add JS files to watch target
   config.addWatchTarget("src/assets/js/");
