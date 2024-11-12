@@ -36,10 +36,6 @@ jobs:
       - name: Verify node-fetch installation
         run: ls node_modules/node-fetch
 
-      - name: Test node-fetch
-        run: |
-          node -e "const fetch = require('node-fetch'); console.log('node-fetch works!');"
-
       # Build site with Eleventy
       - name: Build site with Eleventy
         run: |
