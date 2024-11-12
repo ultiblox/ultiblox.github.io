@@ -27,7 +27,8 @@ title: STL Test Page
 
     // Load STL
     const loader = new THREE.STLLoader();
-    loader.load('/assets/stls/UltiBlox-10-10-5-Base-Nano.stl', function (geometry) {
+    loader.load('https://raw.githubusercontent.com/ultiblox/3DLibrary/main/UltiBlox-10-10-5-Base-Nano.stl', function (geometry) {
+ 
         const material = new THREE.MeshPhongMaterial({ color: 0x555555, specular: 0x111111, shininess: 200 });
         const mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);

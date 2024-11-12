@@ -99,6 +99,11 @@ ol li {
   font-weight: bold;
 }
 
+.content a:hover {
+  color: #005bb5;
+}
+
+
 /* Universal breadcrumb styling */
 .breadcrumb {
   font-size: 0.9em;
@@ -163,4 +168,25 @@ ol li {
 .github-button:hover {
   background-color: #14b8a6; /* Teal hover background */
   color: #ffffff; /* White text on hover */
+}
+
+#stl-viewer {
+  width: 100%; /* Ensure it spans the full width of the page */
+  height: calc(100vh - 200px); /* Dynamically set the height */
+  background: #eeeeee; /* Light background for visibility */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.stl-item {
+  text-align: center;
+  padding: 1rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.stl-item:hover {
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }

@@ -60,6 +60,34 @@ module.exports = (config) => {
 
   config.setLibrary("md", md);
 
+  const BASE_STL_URL = "https://raw.githubusercontent.com/ultiblox/3DLibrary/main/";
+
+  config.addNunjucksTag("stlviewer", function(nunjucksEngine) {
+    return new function() {
+      this.tags = ["stlviewer"];
+
+      this.parse = function(parser, nodes, lexer) {
+        const tok = parser.nextToken();
+        const args = parser.parseSignature(null, true);
+        parser.advanceAfterBlockEnd(tok.value);
+        return new nodes.CallExtension(this, "render", args);
+      };
+
+      this.render = function(context, stlPath) {
+        const uniqueId = `stl-viewer-${Math.random().toString(36).substr(2, 9)}`;
+        const resolvedPath = stlPath.startsWith("http") ? stlPath : BASE_STL_URL + stlPath;
+
+        return new nunjucksEngine.runtime.SafeString(`
+          <div id="${uniqueId}" class="stl-viewer"></div>
+          <script>
+            initializeSTLViewer("${uniqueId}", "${resolvedPath}");
+          </script>
+        `);
+      };
+    };
+  });
+
+
   config.addNunjucksAsyncShortcode("fetchMarkdown", async function(repoName) {
     const githubUrl = `https://github.com/${repoName}`;
     const readmeUrl = `https://raw.githubusercontent.com/${repoName}/main/README.md`;
