@@ -87,6 +87,45 @@ module.exports = (config) => {
     };
   });
 
+  config.addNunjucksTag("stlcard", function (nunjucksEngine) {
+    return new function () {
+      this.tags = ["stlcard"];
+
+      this.parse = function (parser, nodes, lexer) {
+        const tok = parser.nextToken();
+        const args = parser.parseSignature(null, true);
+        parser.advanceAfterBlockEnd(tok.value);
+        return new nodes.CallExtension(this, "render", args);
+      };
+
+      this.render = function (context, title, description, stlPath) {
+        // Ensure the STL path is valid
+        if (!stlPath) {
+          throw new Error("Missing STL path for stlcard tag.");
+        }
+
+        // Resolve the STL path
+        const resolvedPath = stlPath.startsWith("http") ? stlPath : BASE_STL_URL + stlPath;
+
+        // Generate a unique ID for the STL viewer
+        const uniqueId = `stl-card-${Math.random().toString(36).substr(2, 9)}`;
+
+        // Return the card's HTML with embedded STL viewer
+        return new nunjucksEngine.runtime.SafeString(`
+          <div class="stl-card" id="${uniqueId}" style="text-align: center; padding: 1.5rem; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <h3 style="margin-bottom: 0.5rem;">${title || "Untitled"}</h3>
+            <p style="margin-bottom: 1rem;">${description || "No description available."}</p>
+            <div id="${uniqueId}-viewer" class="stl-viewer"></div>
+            <script>
+              initializeSTLViewer("${uniqueId}-viewer", "${resolvedPath}");
+            </script>
+            <a href="${resolvedPath}" style="text-decoration: underline; color: #007acc;">Download STL</a>
+          </div>
+        `);
+      };
+    };
+  });
+  
 
   config.addNunjucksAsyncShortcode("fetchMarkdown", async function(repoName) {
     const githubUrl = `https://github.com/${repoName}`;

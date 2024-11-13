@@ -45,13 +45,13 @@ h3 {
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
+
 h4 {
   font-size: 1.25rem; /* Slightly smaller than h3 */
   font-weight: 500;
   margin-bottom: 0.75rem;
   color: #333; /* Optional: a subtle color variation */
 }
-
 
 p {
   font-size: 1rem;

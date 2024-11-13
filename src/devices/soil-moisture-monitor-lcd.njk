@@ -1,0 +1,101 @@
+---
+layout: page
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  &gt; <a href="/">Home</a> &gt; <a href="/devices">Devices</a> &gt;
+  <a href="/devices/soil-moisture-monitor/">Soil Moisture Monitor</a> &gt;
+  LCD Version
+</nav>
+
+<div class="content">
+
+  <h1>Soil Moisture Monitor - LCD Version</h1>
+
+  <p>The LCD version features a larger 1602 LCD display for improved readability, housed in a 10x10 enclosure.</p>
+  <img src="/assets/img/device-soil-moisture-monitor-1.jpg" alt="LCD Version" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+        
+  <h2>3D Printables</h2>
+  <div class="stl-gallery" class="grid grid-columns-2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; padding: 1rem;">
+    {% stlcard "Nano Enclosure Base", "15x10 base for a nano.", "UltiBlox-15-10-5-Base-Nano.stl" %}
+    {% stlcard "LCD Enclosure Lid", "15x10 lid for the LCD display.", "UltiBlox-15-10-X-Lid-1602LCD-Buttonx2.stl" %}
+    {% stlcard "Mounting Bracket", "15x10 mounting bracket.", "UltiBlox-15-10-X-MountingBracket.stl" %}
+    {% stlcard "Garden Stake", "Garden stake for installation in soil.", "UltiBlox-GardenStake.stl" %}
+  </div>
+
+  <h2>Parts List</h2>
+  <table style="width: 100%">
+    <thead style="text-align: left">
+      <tr>
+        <th>Part</th>
+        <th>Quantity</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Arduino Nano</td>
+        <td>1</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Arduino Nano Expansion Board</td>
+        <td>1</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1602 LCD Display (with I2C adapter)</td>
+        <td>1</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Capacitive Soil Moisture Sensor</td>
+        <td>1</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Momentary/Tactile Button Module</td>
+        <td>2</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>M3 x 16mm-30mm Screws</td>
+        <td>4</td>
+        <td>For enclosure lid</td>
+      </tr>
+      <tr>
+        <td>M3 x 8mm Screws</td>
+        <td>8</td>
+        <td>For mounting buttons and display</td>
+      </tr>
+      <tr>
+        <td>M3 x 12mm-20mm Screws</td>
+        <td>8</td>
+        <td>For mounting bracket and garden stake</td>
+      </tr>
+      <tr>
+        <td>12v Power Supply</td>
+        <td>1</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Sketch Installation</h2>
+  <ul>
+    <li>Install <a href="/libraries/Examples">UltiBlox-Examples</a> library</li>
+    <li>Open File -> Examples -> UltiBlox-Examples -> SensorDisplay in Arduino IDE</li>
+    <li>Adjust SensorConfig.h (if needed)
+      <ul>
+        <li>Set 'SENSOR_LABEL' to 'Moisture'</li>
+        <li>Set 'SENSOR_KEY' to 'M'</li>
+      </ul>
+    </li>
+    <li>Adjust DisplayConfig.h (if needed)
+      <ul>
+        <li>Set 'ACTIVE_DISPLAY_TYPE' to 'DISPLAY_TYPE_LCD' (uncomment the relevant line)</li>
+      </ul>
+    </li>
+    <li>Click Upload</li>
+  </ul>
+</div>
