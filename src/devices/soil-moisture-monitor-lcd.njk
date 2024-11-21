@@ -12,7 +12,7 @@ layout: page
 
   <h1>Soil Moisture Monitor - LCD Version</h1>
 
-  <p>The LCD version features a larger 1602 LCD display for improved readability, housed in a 10x10 enclosure.</p>
+  <p>Monitor soil moisture and view the readings on a 1602 LCD display.</p>
   <img src="/assets/img/device-soil-moisture-monitor-1.jpg" alt="LCD Version" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
         
   <h2>3D Printables</h2>
@@ -82,20 +82,22 @@ layout: page
   </table>
 
   <h2>Sketch Installation</h2>
-  <ul>
+  <div class="instructions">
+  <ol>
     <li>Install <a href="/libraries/Examples">UltiBlox-Examples</a> library</li>
     <li>Open File -> Examples -> UltiBlox-Examples -> SensorDisplay in Arduino IDE</li>
     <li>Adjust SensorConfig.h (if needed)
-      <ul>
+      <ol>
         <li>Set 'SENSOR_LABEL' to 'Moisture'</li>
         <li>Set 'SENSOR_KEY' to 'M'</li>
-      </ul>
+      </ol>
     </li>
     <li>Adjust DisplayConfig.h (if needed)
-      <ul>
+      <ol>
         <li>Set 'ACTIVE_DISPLAY_TYPE' to 'DISPLAY_TYPE_LCD' (uncomment the relevant line)</li>
-      </ul>
+      </ol>
     </li>
     <li>Click Upload</li>
-  </ul>
+  </ol>
+  </div>
 </div>

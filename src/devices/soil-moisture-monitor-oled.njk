@@ -26,8 +26,8 @@ layout: page
   </div>
 
   <h2>Parts List</h2>
-  <table style="width: 100%">
-    <thead style="text-align: left">
+  <table>
+    <thead>
       <tr>
         <th>Part</th>
         <th>Quantity</th>
@@ -61,6 +61,11 @@ layout: page
         <td></td>
       </tr>
       <tr>
+        <td>Arduino Hookup Cables F-F 20cm</td>
+        <td>1 x 40pcs</td>
+        <td></td>
+      </tr>
+      <tr>
         <td>M3 x 8mm Screws</td>
         <td>8</td>
         <td>For mounting buttons and display</td>
@@ -88,29 +93,32 @@ layout: page
     </tbody>
   </table>
 
+  <h2>Sketch Installation</h2>
+  <div class="instructions">
+    <ol>
+      <li>Install <a href="/libraries/Examples">UltiBlox-Examples</a> library</li>
+      <li>Open File -> Examples -> UltiBlox-Examples -> SensorDisplay in Arduino IDE</li>
+      <li>Adjust SensorConfig.h (if needed)
+        <ol>
+          <li>Set 'SENSOR_LABEL' to 'Moisture'</li>
+          <li>Set 'SENSOR_KEY' to 'M'</li>
+        </ol>
+      </li>
+      <li>Adjust DisplayConfig.h (if needed)
+        <ol>
+          <li>Set 'ACTIVE_DISPLAY_TYPE' to 'DISPLAY_TYPE_LCD' (uncomment the relevant line)</li>
+        </ol>
+      </li>
+      <li>Click Upload</li>
+    </ol>
+  </div>
+
+  </div>
+
   <h2>Known Issues</h2>
   <ul>
     <li>The mounting bracket doesn't look great. A redesign is planned.</li>
     <li>The sensor cable is too long and needs a solution for tidying or shortening.</li>
   </ul>
-
-  <h2>Sketch Installation</h2>
-  <ul>
-    <li>Install <a href="/libraries/Examples">UltiBlox-Examples</a> library</li>
-    <li>Open File -> Examples -> UltiBlox-Examples -> SensorDisplay in Arduino IDE</li>
-    <li>Adjust SensorConfig.h (if needed)
-      <ul>
-        <li>Set 'SENSOR_LABEL' to 'Moisture'</li>
-        <li>Set 'SENSOR_KEY' to 'M'</li>
-      </ul>
-    </li>
-    <li>Adjust DisplayConfig.h (if needed)
-      <ul>
-        <li>Set 'ACTIVE_DISPLAY_TYPE' to 'DISPLAY_TYPE_OLED' (uncomment the relevant line)</li>
-      </ul>
-    </li>
-    <li>Click Upload</li>
-  </ul>
-  </div>
 
 </div>

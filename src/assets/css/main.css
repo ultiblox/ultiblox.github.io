@@ -359,3 +359,93 @@ code[class^="language-"] {
     height: 1.5rem;
 }
 
+/* Unified Table Style */
+table {
+  width: 100%; /* Ensure table spans the parent container */
+  border-collapse: collapse; /* Remove gaps between cells */
+  margin: 1.5rem 0; /* Add space above and below the table */
+  font-size: 16px; /* Readable font size */
+  font-family: Arial, sans-serif; /* Clean, professional font */
+  background-color: #ffffff; /* White table background */
+  border: 1px solid #ddd; /* Subtle border around the table */
+  border-radius: 6px; /* Rounded corners for a modern look */
+  overflow: hidden; /* Prevent table content from overflowing */
+  overflow-x: auto; /* Enable scrolling if needed */
+  white-space: nowrap; /* Prevent wrapping of table content */
+}
+
+/* Header Styling */
+thead th {
+  background-color: #f8f8f8; /* Neutral gray header background */
+  color: #333; /* Dark text for high contrast */
+  padding: 12px; /* Comfortable padding */
+  font-weight: bold; /* Highlight header text */
+  text-align: left; /* Align header text to the left */
+  border-bottom: 2px solid #ddd; /* Distinct separation from body rows */
+}
+
+/* Body Cell Styling */
+tbody td {
+  padding: 10px; /* Add padding for readability */
+  border-bottom: 1px solid #ddd; /* Subtle row dividers */
+  text-align: left; /* Default text alignment */
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(odd) {
+  background-color: #fafafa; /* Light gray for odd rows */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff; /* White for even rows */
+}
+
+/* Hover Effect */
+tbody tr:hover {
+  background-color: #f2f2f2; /* Slightly darker gray for hover */
+}
+
+.instructions {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fff8e5; /* Pale cream background */
+  border: 1px solid #f2e6c7; /* Subtle border in a matching shade */
+  border-radius: 8px; /* Slight rounding for a modern feel */
+  padding: 1.5rem; /* Comfortable padding inside the box */
+  margin: 0; /* Spacing around the box */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+.instructions ol {
+  list-style: decimal; /* Use numbers for top-level steps */
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.instructions ol li {
+  margin-bottom: 1rem; /* Add spacing between steps */
+}
+
+.instructions ol ol {
+  list-style: lower-alpha; /* Use letters for sub-steps (e.g., a, b, c) */
+  margin-top: 0.5rem;
+  margin-left: 2rem; /* Indent sub-steps */
+}
+
+.instructions ol ol li {
+  margin-bottom: 0.5rem;
+}
+
+.instructions code {
+  background-color: #f5f5f5; /* Subtle background for distinction */
+  color: #d63384; /* Highlighted color for inline code */
+  padding: 0px; /* Minimal padding to avoid disrupting line height */
+  border-radius: 4px; /* Slight rounding for a clean look */
+  font-size: 0.9em; /* Slightly smaller to match inline text */
+  font-family: 'Courier New', monospace; /* Monospace for clarity */
+  display: inline; /* Ensure inline behavior */
+  line-height: normal; /* Maintain consistent line height */
+  margin: 0; /* No additional margin */
+}
