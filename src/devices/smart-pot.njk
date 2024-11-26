@@ -12,14 +12,11 @@ layout: page
   <h2>Smart Pot</h2>
   <p>The Smart Pot device is designed for automated plant care, monitoring soil moisture and adjusting irrigation as needed. Built on the Sensor Control Template.</p>
 
-  <div><img src="/assets/img/smart-pot.webp" alt="Smart Pot"></div>
-  <h3>Template</h3>
-  <ul>
-    <li><a href="/templates/sensor-control">Sensor Control</a>
-  </ul>
+  <div><img src="/assets/img/device-smart-pot-3.jpg" alt="Smart Pot Prototype #3" class="w-full h-full object-cover rounded-lg shadow-lg"></div>
 
   <h3>Key Features</h3>
   <ul>
+    <li>Removable/replaceable irrigator cartridge.</li>
     <li>Soil moisture sensor embedded into the pot.</li>
     <li>Peristaltic pump embedded into the cartridge.</li>
     <li>Displays the current soil moisture reading.</li>
@@ -28,53 +25,51 @@ layout: page
 
   <h3>Use Cases</h3>
   <ul>
-    <li>Indoor Plant Care</li>
-    <li>Automated Home Gardens</li>
+    <li>Indoor Ornamental Plants</li>
+    <li>Bench Top Garden</li>
   </ul>
 
-  <h3>3D Printables</h3>
+  <h3>Template</h3>
   <ul>
-    <li>Coming soon...</li>
+    <li><a href="/templates/sensor-control">Sensor Control</a>
   </ul>
 
-
-  <h2>Prototypes</h2>
-
-  <h3>Prototype #3</h3>
-  <p>Improvements:</p>
+  <h3>Libraries</h3>
   <ul>
-    <li>Better fit.</li>
-    <li>Sensor wire and inner tubing are barely visible now, mostly hidden by the outer part of the pot.</li>
-    <li>The gap in the cartridge has been filled in.</li>
-    <li>New 3d printed drip halo.</li>
+    <li><strong><a href="/libraries/DisplayValueLCD">DisplayValueLCD</a></strong></li>
+    <li><strong><a href="/libraries/SensorAnalog">SensorAnalog</a></strong></li>
+    <li><strong><a href="/libraries/ActiveThreshold">ActiveThreshold</a></strong></li>
+    <li><strong><a href="/libraries/SerialLogger">SerialLogger</a></strong></li>
   </ul>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <!-- Left Image (spans 2 columns on medium screens and above) -->
-    <div class="md:col-span-1">
-      <img src="/assets/img/device-smart-pot-3.jpg" alt="Smart Pot Prototype #3" class="w-full h-full object-cover rounded-lg shadow-lg">
-    </div>
-    <div class="md:col-span-1">
-      <img src="/assets/img/device-smart-pot-3b.jpg" alt="Smart Pot Prototype #3b" class="w-full h-full object-cover rounded-lg shadow-lg">
-    </div>
+
+  <h3>Templates</h3>
+  <ul>
+    <li><strong><a href="/templates/SensorControl">SensorControl</a></strong></li>
+  </ul>
+
+  <h2>3D Printables</h2>
+  <div class="stl-gallery">
+    {% stlcard "Inner Pot", "The inner section of the smart pot", "UltiBlox-SmartPot-Inner.stl" %}
+    {% stlcard "Outer Pot", "The outer section of the smart pot", "UltiBlox-SmartPot-Outer.stl" %}
+    {% stlcard "Irrigator Cartridge", "The cartridge responsible for automatic irrigation", "UltiBlox-SmartPot-IrrigatorCartridge.stl" %}
+    {% stlcard "Drop Halo", "Distributes water around the top of the pot", "UltiBlox-DripHalo.stl" %}
   </div>
 
-  <h3>Prototype #2</h3>
+  <h2>Parts List</h2>
+  <p>Coming soon...</p>
+
+  <h2>Assembly Instructions</h2>
+  <p>Coming soon...</p>
+
+  <h2>Revisions</h2>
+
+  <h3>Current</h3>
   <p>Improvements:</p>
   <ul>
     <li>Added buttons and display. This version no longer needs a computer attached to calibrate or configure the irrigation threshold.</li>
     <li>Swapped to a more durable waterproof sensor.</li>
+    <li>New 3d printed drip halo.</li>
   </ul>
-  <p>Issues:</p>
-  <ul>
-    <li>The tubing from the pump into the pot is on the outside, when it should be hidden by the outter part of the pot.</li>
-    <li>The cartridge has a small gap in it.</li>
-  </ul>
-  <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
-    <!-- Left Image (spans 2 columns on medium screens and above) -->
-    <div class="md:col-span-1">
-      <img src="/assets/img/device-smart-pot-2.jpg" alt="Smart Pot Prototype #2" class="w-full h-full object-cover rounded-lg shadow-lg">
-    </div>
-  </div>
 
   <h3>Prototype #1</h3>
   <p>Issues:</p>
